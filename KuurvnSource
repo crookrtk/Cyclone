@@ -1,6 +1,6 @@
 -- CYCLONE FE ADMIN OWNER EDITION, this is for Kuurvn specificly and settings set to my personal preferences.
 -- Made by Kuurvn | Cyclone
--- Version: 0.2a
+-- Version: 0.3a
 -- Skidding results in you being uncool, why are you here.
 -- Settings:
 local PREFIX = ":" -- Change this to whatever you want to be used before the CMD.
@@ -659,8 +659,10 @@ woosh2:Play()
 TweenService:Create(mainFrame, tweenInfo2, {Position = UDim2.new(0.82, 0, 0.6, 0)}):Play()
 wait(0.1)
 introBGM:Play()
-createNotif("Cyclone V0.2a is now running, made by Kuurvn.", CustomEnum.NotifcationType.Important)
-wait(0.1)
+createNotif("Cyclone V0.3a is now running, made by Kuurvn.", CustomEnum.NotifcationType.Important)
+wait(0.3)
+createNotif("Need help? Join the Discord: https://discord.gg/fDu45Q6fNc", CustomEnum.NotifcationType.Important)
+wait(0.4)
 if not string.split then
-	createNotif("Your executor doesn't support string.split", CustomEnum.NotifcationType.Error)
+	createNotif("Your executor doesn't support string.split, please considor using a paid executor.", CustomEnum.NotifcationType.Error)
 end
