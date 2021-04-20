@@ -1,6 +1,6 @@
 -- CYCLONE FE ADMIN OWNER EDITION, this is for Kuurvn specificly and settings set to my personal preferences.
 -- Made by Kuurvn | Cyclone
--- Version: 0.4a
+-- Version: 0.5a
 -- Skidding results in you being uncool, why are you here.
 -- Settings:
 local PREFIX = ":" -- Change this to whatever you want to be used before the CMD.
@@ -348,6 +348,7 @@ Cyclone:createCommand("rejoin", "rejoin", "Makes you rejoin the game", function(
 	game:GetService("TeleportService"):Teleport(game.GameId, LocalPlayer)
 end)
 Cyclone:createCommand("respawn", "respawn", "Respawn your character", function(cmdParameters)
+	createNotif("Respawning your Character...", CustomEnum.NotifcationType.Normal)
 	LocalPlayer.Character:ClearAllChildren()
 	local char = Instance.new("Model", workspace)
 	Instance.new("Humanoid", char)
@@ -572,6 +573,7 @@ Cyclone:createCommand("custombtools", "custombtools", "Custom btools, only repli
 	end)
 end)
 Cyclone:createCommand("brickspam", "brickspam", "Turns your tools into bricks then drops them", function(cmdParameters)
+	createNotif("Turned your hats into bricks!", CustomEnum.NotifcationType.Normal)
 	for _, tool in pairs(LocalPlayer.Backpack:GetChildren()) do
 		if tool:IsA("Tool") then
 			tool.Parent = LocalPlayer.Character
@@ -584,6 +586,7 @@ Cyclone:createCommand("brickspam", "brickspam", "Turns your tools into bricks th
 	end
 end)
 Cyclone:createCommand("swordanimation", "swordanimation", "Uses slash animation for swords/back weapons", function(cmdParameters)
+	createNotif("broken script lol", CustomEnum.NotifcationType.Normal)
 	for _, hat in pairs(cmdlp.Character.Humanoid:GetAccessories()) do
 		if hat.Handle ~= nil then
 			local tool = Instance.new("Tool", cmdlp.Backpack)
@@ -614,6 +617,7 @@ Cyclone:createCommand("swordanimation", "swordanimation", "Uses slash animation 
 	end
 end)
 Cyclone:createCommand("monstermash", "monstermash", "Plays Monster Mash animation", function(cmdParameters)
+	createNotif("broken script lol", CustomEnum.NotifcationType.Normal)
 	local AnimationId = "35654637"
 	local Anim = Instance.new("Animation")
 	Anim.AnimationId = "rbxassetid://"..AnimationId
@@ -628,6 +632,7 @@ Cyclone:createCommand("russiandance", "russiandance", "Plays Russian Squate Danc
 	play:Play()
 end)
 Cyclone:createCommand("animationchanger", "animationchanger", "Opens FE Animation Changer GUI", function(cmdParameters)
+	createNotif("Animation Changer GUI now loaded!", CustomEnum.NotifcationType.Normal)
 	local AnimationChanger = Instance.new("ScreenGui")
 	local Main = Instance.new("Frame")
 	local TopBar = Instance.new("Frame")
@@ -1308,6 +1313,7 @@ Cyclone:createCommand("animationchanger", "animationchanger", "Opens FE Animatio
 	Main:TweenPosition(UDim2.new(0.421999991, 0, 0.28400004, 0))
 end)
 Cyclone:createCommand("flyr6", "flyr6", "Makes your character fly, press E to activate (R6 FLY ONLY)", function(cmdParameters)
+	createNotif("Your character is now flying!", CustomEnum.NotifcationType.Normal)
 	repeat wait() 
 	until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("Head") and game.Players.LocalPlayer.Character:findFirstChild("Humanoid") 
 	local mouse = game.Players.LocalPlayer:GetMouse() 
@@ -1390,6 +1396,7 @@ Cyclone:createCommand("flyr6", "flyr6", "Makes your character fly, press E to ac
 	Fly()
 end)
 Cyclone:createCommand("flyr15", "flyr15", "Makes your character Fly, press X to fly/turn fly off (R15 FLY ONLY)", function(cmdParameters)
+	createNotif("Your character is now flying!", CustomEnum.NotifcationType.Normal)
 	local plr = game.Players.LocalPlayer
 	local mouse = plr:GetMouse()
 
@@ -1499,7 +1506,7 @@ Cyclone:createCommand("flyr15", "flyr15", "Makes your character Fly, press X to 
 		end
 	end)
 	start()
-		end)
+end)
 Cyclone:createCommand("drophats", "drophats", "Drops all your hats", function(cmdParameters)
 	for _, hat in pairs(LocalPlayer.Character:FindFirstChild("Humanoid"):GetAccessories()) do
 		hat.Parent = workspace.Terrain -- Bypasses some hat clearing scripts
@@ -1535,7 +1542,13 @@ Cyclone:createCommand("xray", "xray", "Makes you see through walls", function(cm
 		end
 	end
 end)
+Cyclone:createCommand("walkspeed 50", "walkspeed 50", "Changes your characters Walkspeed to 50", function(cmdParameters)
+	createNotif("Your speed is now 50!", CustomEnum.NotifcationType.Normal)
+	cmdlp.Character.Humanoid.WalkSpeed = 50
+	opx("-","Walkspeed set to custom (50)")
+end)
 Cyclone:createCommand("unxray", "unxray", "Removes Xray", function(cmdParameters)
+	createNotif("x-Ray disabled!", CustomEnum.NotifcationType.Normal)
 	for _, d in pairs(workspace:GetDescendants()) do
 		if d:IsA("BasePart") and d:FindFirstChild("transpVal") then
 			d.Transparency = d:FindFirstChild("transpVal").Value
@@ -1544,6 +1557,7 @@ Cyclone:createCommand("unxray", "unxray", "Removes Xray", function(cmdParameters
 	end
 end)
 Cyclone:createCommand("oldroblox", "oldroblox", "Enables old roblox game theme", function(cmdParameters)
+	createNotif("Old ROBLOX enabled!", CustomEnum.NotifcationType.Normal)
 	for i,v in pairs(workspace:GetDescendants()) do
 		if v:IsA("BasePart") then
 			local dec = Instance.new("Texture", v)
@@ -1579,6 +1593,7 @@ Cyclone:createCommand("oldroblox", "oldroblox", "Enables old roblox game theme",
 	sky.SkyboxUp = "rbxassetid://161781260"
 end)
 Cyclone:createCommand("savegame", "savegame", "Saves game to your executors Workspace folder", function(cmdParameters)
+	createNotif("Saving map to your Workspace folder...", CustomEnum.NotifcationType.Normal)
 	saveinstance()
 end)
 Cyclone:createCommand("countdown", "countdown [countinto]", "Makes you count from countinto to 0 with changeable delay", function(cmdParameters)
@@ -1660,7 +1675,7 @@ woosh2:Play()
 TweenService:Create(mainFrame, tweenInfo2, {Position = UDim2.new(0.82, 0, 0.6, 0)}):Play()
 wait(0.1)
 introBGM:Play()
-createNotif("Cyclone V0.4a is now running, made by Kuurvn.", CustomEnum.NotifcationType.Important)
+createNotif("Cyclone V0.5a is now running, made by Kuurvn.", CustomEnum.NotifcationType.Important)
 wait(0.3)
 createNotif("Need help? Join the Discord: https://discord.gg/fDu45Q6fNc", CustomEnum.NotifcationType.Important)
 wait(0.5)
